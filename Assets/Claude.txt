@@ -1,0 +1,233 @@
+You are an expert in MOS 6510 Assembly, Commodore 64 architecture, Unity 6+ and C#.
+
+Create a modular Mini6510 Runtime for Unity.
+
+IMPORTANT
+
+* This is NOT a Commodore 64 emulator.
+* This is a custom 6510 runtime inspired by the Commodore 64 memory map.
+* Preserve original C64 memory addresses whenever possible.
+* Existing C64 Assembly code should be portable with minimal changes.
+* Do NOT emulate VIC-II, SID, CIA, BASIC ROM or KERNAL ROM at hardware level.
+* Unity provides rendering, audio and input.
+* The 6510 code must interact only through memory-mapped registers.
+* Use Unity 6+ and C#.
+* Project folder: Mini6510.
+* Modular architecture only.
+* Every source file must contain:
+
+  * Author: Fabrizio Radica
+  * Version
+  * Description
+
+GOAL
+
+Create a Fantasy 6510 Runtime capable of running Assembly programs, demos and games using a C64-like programming model while leveraging Unity for rendering, audio and input.
+
+MEMORY MAP
+
+$0000-$03FF  General RAM
+
+$0400-$07E7  Video RAM (40x25 text screen)
+
+$07F8-$07FF  Sprite Pointers
+
+$0800-$0BE7  Internal Color Buffer
+
+$1000-$1FFF  ASM Program RAM
+
+$2000-$2FFF  Character Set RAM
+
+$D000-$D00F  Sprite Positions
+
+$D010         Sprite X MSB
+
+$D015         Sprite Enable
+
+$D017         Sprite Y Expand
+
+$D01D         Sprite X Expand
+
+$D020         Border Color
+
+$D021         Background Color
+
+$D027-$D02E  Sprite Colors
+
+$D100-$D1FF  Raster Effect Registers
+
+$D400-$D418  SID-Compatible Audio Registers
+
+$D800-$DBE7  Color RAM
+
+$DC00         Joystick Port 2
+
+$DC01         Joystick Port 1
+
+$FF00         Frame Counter
+
+$FF01         VSync Flag
+
+$FF10         Sprite Collision Register
+
+CORE FEATURES
+
+1. Load ASM source files from Unity StreamingAssets.
+2. Parse and execute Assembly programs.
+3. Support complete official MOS 6510 instruction set.
+4. No illegal opcodes.
+5. Video RAM compatible text mode.
+6. Original Commodore 64 color palette.
+7. Custom Character Set support.
+8. Sprite support using original C64 addresses.
+9. SID-like audio using Unity audio backend.
+10. Joystick support using original C64 addresses.
+11. Raster effects support.
+12. Copper Bars support.
+13. Frame synchronized execution.
+14. Production-ready implementation.
+15. No pseudocode.
+16. No TODOs.
+17. No placeholders.
+18. Do not invent features not explicitly requested.
+
+VIDEO SYSTEM
+
+Requirements:
+
+* Render using Unity OnGUI.
+* Do not use Tilemap.
+* Do not use Canvas.
+* Do not use TextMeshPro.
+* Simulate character pixels directly from Character Set RAM.
+* Simulate C64 text mode.
+* Support Border Color.
+* Support Background Color.
+* CPU execution must be synchronized with video updates.
+
+Rendering Order:
+
+1. Background
+2. Raster Effects
+3. Copper Bars
+4. Character Layer
+5. Sprites
+6. Border
+
+RASTER EFFECTS
+
+Create a lightweight raster system inspired by Commodore 64 demos.
+
+Requirements:
+
+* Copper bars behind text.
+* Multiple bars active simultaneously.
+* Original C64 palette.
+* Vertical movement support.
+* Per-frame animation.
+* Video synchronized.
+
+SPRITES
+
+Requirements:
+
+* 8 hardware-style sprites.
+* Original C64 sprite addresses.
+* Sprite pointers.
+* Sprite enable flags.
+* Sprite colors.
+* X/Y scaling support.
+* Collision detection.
+* Sprite rendering synchronized to frame updates.
+
+INPUT
+
+Maintain original C64 joystick compatibility.
+
+$DC00 = Port 2
+
+$DC01 = Port 1
+
+Support:
+
+* Keyboard
+* Xbox Controller
+* PlayStation Controller
+* Generic Gamepad
+
+Assembly code must read input exclusively through memory registers.
+
+AUDIO
+
+Provide SID-compatible programming model.
+
+Requirements:
+
+* Maintain original SID register addresses.
+* Unity handles actual audio generation.
+* Support frequency changes.
+* Support waveform selection.
+* Support ADSR parameters.
+* Support master volume.
+
+Do not emulate the SID chip cycle-by-cycle.
+
+ARCHITECTURE
+
+Suggested Files:
+
+Mini6510.cs
+
+CPU6510.cs
+
+OpcodeTable.cs
+
+Memory.cs
+
+VideoRAM.cs
+
+ColorRAM.cs
+
+CharacterSet.cs
+
+SpriteSystem.cs
+
+RasterSystem.cs
+
+AudioSystem.cs
+
+InputSystem6510.cs
+
+Renderer.cs
+
+AssemblerLoader.cs
+
+ProgramLoader.cs
+
+CollisionSystem.cs
+
+EXAMPLE DEMO
+
+Provide a complete Assembly demo to place inside StreamingAssets.
+
+Demo Requirements:
+
+* Display:
+
+RADICA 6510 UNITY DEMO
+
+* Smooth horizontal scrolling text.
+* Animated copper bars behind text.
+* Multiple colors.
+* Continuous execution loop.
+* Uses Video RAM.
+* Uses Color RAM.
+* Uses Raster Registers.
+* Demonstrates sprite support.
+* Demonstrates joystick input.
+* Demonstrates sound generation.
+
+Generate complete production-ready C# code and complete Assembly source code.
+No pseudocode.
+No placeholders.
+No omissions.

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"D:\\\\Github\\\\Radica65010\\\\Assets\\\\Mini6510\\\\Scripts\")",
+      "Bash(mkdir -p \"D:\\\\Github\\\\Radica65010\\\\Assets\\\\StreamingAssets\")"
+    ]
+  }
+}
